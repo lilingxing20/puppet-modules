@@ -1,0 +1,16 @@
+
+vsphereapi::backends::vcenter_backends:
+  - "vcenter1"
+  - "vcenter2"
+vcenter1:
+  host_ip: "172.16.0.100"
+  host_username: "administrator@vsphere.local"
+  host_password: "123456"
+  insecure: true
+  compute_cluster_map: "compute01:cluster1,compute02:cluster2"
+vcenter2:
+  host_ip: "172.16.0.200"
+  host_username: "administrator@vsphere.local"
+  host_password: "123456"
+  insecure: true
+  compute_cluster_map: "compute03:cluster1"
