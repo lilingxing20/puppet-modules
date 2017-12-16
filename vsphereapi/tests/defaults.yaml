@@ -1,16 +1,21 @@
+vsphereapi::bind_host: '172.16.134.222'
+vsphereapi::workers: 1
+vsphereapi::auth_strategy: 'keystone'
+vsphereapi::keystone::auth_config::password: 123456
+vsphereapi::keystone::auth_config::auth_url: 'http://172.16.134.45:5000'
 
 vsphereapi::backends::vcenter_backends:
   - "vcenter1"
-  - "vcenter2"
 vcenter1:
-  host_ip: "172.16.0.100"
+  host_ip: "172.16.134.169"
   host_username: "administrator@vsphere.local"
-  host_password: "123456"
+  host_password: "Password01!"
   insecure: true
   compute_cluster_map: "compute01:cluster1,compute02:cluster2"
-vcenter2:
-  host_ip: "172.16.0.200"
-  host_username: "administrator@vsphere.local"
-  host_password: "123456"
-  insecure: true
-  compute_cluster_map: "compute03:cluster1"
+
+vsphereapi::keystone::auth::password: 123456
+vsphereapi::keystone::auth::auth_name: 'vsphereapi'
+vsphereapi::keystone::auth::tenant: 'services'
+vsphereapi::keystone::auth::public_url: 'http://172.16.134.222:9886/v1.0/%(tenant_id)s'
+vsphereapi::keystone::auth::admin_url: 'http://172.16.134.222:9886/v1.0/%(tenant_id)s'
+vsphereapi::keystone::auth::internal_url: 'http://172.16.134.222:9886/v1.0/%(tenant_id)s'

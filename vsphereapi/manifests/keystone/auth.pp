@@ -163,7 +163,7 @@ class vsphereapi::keystone::auth (
     $public_url_real = sprintf('%s://%s:%s/%s/%%(tenant_id)s',
       pick($public_protocol, 'http'),
       pick($public_address, '127.0.0.1'),
-      pick($public_port, $port, '8778'),
+      pick($public_port, $port, '9886'),
       pick($version, 'v1.0'))
   } else {
     $public_url_real = $public_url
@@ -173,7 +173,7 @@ class vsphereapi::keystone::auth (
     $admin_url_real = sprintf('%s://%s:%s/%s/%%(tenant_id)s',
       pick($admin_protocol, 'http'),
       pick($admin_address, '127.0.0.1'),
-      pick($port, '8778'),
+      pick($port, '9886'),
       pick($version, 'v1.0'))
   } else {
     $admin_url_real = $admin_url
@@ -183,7 +183,7 @@ class vsphereapi::keystone::auth (
     $internal_url_real = sprintf('%s://%s:%s/%s/%%(tenant_id)s',
       pick($internal_protocol, 'http'),
       pick($internal_address, '127.0.0.1'),
-      pick($port, '8778'),
+      pick($port, '9886'),
       pick($version, 'v1.0'))
   } else {
     $internal_url_real = $internal_url

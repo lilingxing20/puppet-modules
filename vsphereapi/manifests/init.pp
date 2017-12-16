@@ -29,6 +29,10 @@ class vsphereapi (
     'DEFAULT/auth_strategy':        value => $auth_strategy;
   }
 
+  if $auth_strategy == 'keystone' {
+    include vsphereapi::keystone::auth_config
+  }
+
   if $manage_service {
     if $enabled {
       $ensure = 'running'
